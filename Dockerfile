@@ -1,14 +1,11 @@
-FROM python:3
-
-RUN git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it && \
-  bash ~/.bash_it/install.sh --silent
+FROM python:3.7
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
   apt-get upgrade -y && \
-  apt-get install -y nodejs texlive-latex-extra texlive-xetex && \
-  rm -rf /var/lib/apt/lists/*
-
-RUN pip install --upgrade pip && \
+  apt-get install -y nodejs texlive-latex-extra texlive-xetex git curl zsh && \
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+  rm -rf /var/lib/apt/lists/* && \
+  pip install --upgrade pip && \
   pip install --upgrade \
     jupyterlab==1.2.6 \
     ipywidgets \
@@ -30,6 +27,7 @@ RUN pip install --upgrade pip && \
     jupyterlab-git && \
   jupyter labextension install \
     @jupyter-widgets/jupyterlab-manager \
+    @oriolmirosa/jupyterlab_materialdarker \
     @jupyterlab/latex \
     jupyterlab-drawio \ 
     jupyterlab-plotly \
