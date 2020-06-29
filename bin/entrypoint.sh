@@ -27,6 +27,7 @@ if [ -f /notebooks/extensions.txt ]; then
   cat extensions.txt | xargs -I {} jupyter {} install --user
 fi
 
+
 echo
 echo "Installed software:"
 python --version

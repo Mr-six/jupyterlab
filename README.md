@@ -1,70 +1,34 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/amalic/Jupyterlab/blob/master/LICENSE)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/amalic/jupyterlab)
-[![Docker Pulls](https://img.shields.io/docker/pulls/amalic/jupyterlab.svg)](https://hub.docker.com/r/amalic/jupyterlab/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Mr-six/Jupyterlab/blob/master/LICENSE)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/mrsix/jupyterlab)
+[![Docker Pulls](https://img.shields.io/docker/pulls/mrsix/jupyterlab.svg)](https://hub.docker.com/r/mrsix/jupyterlab/)
+
+## 插件列表
+1. 默认使用 zsh (集成 Oh My Zsh, 以及自动补全和高亮插件)
+2. 包含 Python 常用库 numpy, pandas talib 等
+3. jupyter-widgets/jupyterlab-manager 可自定义安装插件
+4. 默认包含 drawio, plotly
 
 
-## Jupyterlab Docker container
-
-**This Docker container runs as root user!** It can be helpful when e.g. the popular jupyter/datascience-notebook image does not work because it runs as Jovyan user. 
-
-#### Installed Jupyterlab extensions
-- [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20Basics.html)
-- [@jupyterlab/latex](https://github.com/jupyterlab/jupyterlab-latex)
-- [jupyterlab-plotly](https://www.npmjs.com/package/jupyterlab-plotly)
-- [@mflevine/jupyterlab_html](https://github.com/mflevine/jupyterlab_html)
-- [jupyterlab-drawio](https://github.com/QuantStack/jupyterlab-drawio)
-- [jupyterlab-spreadsheet](https://github.com/quigleyj97/jupyterlab-spreadsheet)
-- [@bokeh/jupyter_bokeh](https://github.com/bokeh/jupyter_bokeh)
-- [@jupyterlab/toc](https://www.npmjs.com/package/@jupyterlab/toc)
-- [@jupyterlab/git](https://www.npmjs.com/package/@jupyterlab/git)
-
-### Your notebooks
-
-Volumes can be mounted into `/notebooks` folder. If the folder contains a requirements.txt file, it will be installed automatically when the container starts up.
 
 ---
 
 ### Pull/Update to latest version
 ```bash
-docker pull amalic/jupyterlab:latest
+docker pull mrsix/jupyterlab:latest
 ```
 
 ### Run
 ```bash
-docker run --rm -it -p 8888:8888 amalic/jupyterlab
+docker run --rm -it -p 8888:8888 mrsix/jupyterlab
 ```
 
 or if you want to define your own password
 ```bash
-docker run --rm -it -p 8888:8888 -e PASSWORD="<your_secret>" amalic/jupyterlab
+docker run --rm -it -p 8888:8888 -e PASSWORD="<your_secret>" mrsix/jupyterlab
 ```
-
-The container will install requirements from files present at the root of the repository at `docker run` (in this order):
-
-* `packages.txt`: install apt-get packages
-* `requirements.txt`: install pip packages
-* `extensions.txt`: install Jupyterlab extensions
-
-### Run from Git repository
-
-You can provide a Git repository to be cloned in `/notebooks` when doing `docker run`
-
-```bash
-docker run --rm -it -p 8888:8888 -v /data/jupyterlab-notebooks:/notebooks -e PASSWORD="<your_secret>" -e GIT_URL="https://github.com/vemonet/translator-sparql-notebook" umids/jupyterlab:latest
-```
-
-> Access on http://localhost:8888 and files shared in `/data/jupyterlab-notebooks`
-
-or use the current directory as source code in the container:
-
-```bash
-docker run --rm -it -p 8888:8888 -v $(pwd):/notebooks -e PASSWORD="<your_secret>" umids/jupyterlab:latest
-```
-
-> Use `${pwd}` for Windows
 
 ### Build from source
 
 ```bash
-docker build -t amalic/jupyterlab .
+docker build -t Mr-six/jupyterlab .
 ```
