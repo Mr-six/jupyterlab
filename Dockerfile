@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9.4
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
   apt-get upgrade -y && \
