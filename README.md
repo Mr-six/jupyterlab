@@ -27,6 +27,11 @@ or if you want to define your own password
 docker run --rm -it -p 8888:8888 -e PASSWORD="<your_secret>" mrsix/jupyterlab
 ```
 
+or use the current directory as source code in the container:
+```bash
+docker run --rm -it -p 8888:8888 -v $(pwd):/notebooks -e PASSWORD="<your_secret>" mrsix/jupyterlab
+```
+
 ### Build from source
 
 ```bash
