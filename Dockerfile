@@ -17,6 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
   pip install --upgrade pip && \
   pip install --upgrade \
     jupyterlab \
+    jupyterlab_widgets \
     ipywidgets \
     plotly \
     numpy \
@@ -33,7 +34,6 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
     nose \
     TA-Lib && \
   jupyter labextension install \
-    @jupyter-widgets/jupyterlab-manager@2.0 \
     jupyterlab-drawio \ 
     jupyterlab-plotly \
     jupyterlab-spreadsheet && \
